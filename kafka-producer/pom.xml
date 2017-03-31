@@ -18,8 +18,26 @@
 
 
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <artifactId>kafka-common</artifactId>
+                <groupId>com.abin.lee</groupId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
-<  <profiles>
+
+    <dependencies>
+        <dependency>
+            <artifactId>kafka-common</artifactId>
+            <groupId>com.abin.lee</groupId>
+        </dependency>
+    </dependencies>
+
+
+ <profiles>
     <profile>
         <id>local</id>
         <properties>
