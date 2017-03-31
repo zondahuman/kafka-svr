@@ -34,7 +34,7 @@ public class KafkaController {
      * @return
      * @throws TException
      */
-    @RequestMapping(value = "/send", method = RequestMethod.GET)
+    @RequestMapping(value = "/send", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
     public String send(String message) throws TException {
         LOGGER.info("message={}", message);
