@@ -13,10 +13,10 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class KafkaProducerService {
-    protected final Logger LOG = LoggerFactory.getLogger("KafkaProducerService");
+    protected final Logger LOGGER = LoggerFactory.getLogger("KafkaProducerService");
 
     @Autowired
-    private KafkaTemplate<String, String> kafkaTemplate;
+    private KafkaTemplate<Integer, String> kafkaTemplate;
 
     /**
      * 向kafka里写数据.<br/>
@@ -24,7 +24,9 @@ public class KafkaProducerService {
      * Date:2016年6月24日下午6:22:58
      */
     public void send(String message){
+        LOGGER.info("message={}", message , "---------------------start-------");
         kafkaTemplate.sendDefault(message);
+        LOGGER.info("message={}", message , "---------------------end-------");
     }
 
 }

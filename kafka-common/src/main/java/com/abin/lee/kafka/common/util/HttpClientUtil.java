@@ -108,9 +108,9 @@ public class HttpClientUtil {
     public static RequestConfig requestConfig(){
         RequestConfig requestConfig = RequestConfig.custom()
                 .setCookieSpec(CookieSpecs.STANDARD_STRICT)
-                .setConnectionRequestTimeout(20000)
-                .setConnectTimeout(20000)
-                .setSocketTimeout(20000)
+                .setConnectionRequestTimeout(200000)
+                .setConnectTimeout(200000)
+                .setSocketTimeout(200000)
                 .build();
         return requestConfig;
     }

@@ -18,6 +18,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * Created by abin on 2017/3/31 2017/3/31.
@@ -33,7 +34,7 @@ public class KafkaSendTest {
             CloseableHttpClient httpClient = HttpClientUtil.getHttpClient();
             List<NameValuePair> nvps = new ArrayList<NameValuePair>();
             Map<String,String> request = Maps.newHashMap();
-            request.put("id", "1");
+            request.put("id", UUID.randomUUID().toString());
             request.put("name", "abin");
             request.put("age", "20");
             nvps.add(new BasicNameValuePair("message", JsonUtil.toJson(request)));

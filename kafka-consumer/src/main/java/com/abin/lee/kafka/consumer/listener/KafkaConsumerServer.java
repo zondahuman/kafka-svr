@@ -10,7 +10,7 @@ import org.springframework.kafka.listener.MessageListener;
  * kafka-svr
  * com.abin.lee.kafka.consumer.listener
  */
-public class KafkaConsumerServer  implements MessageListener<String, String> {
+public class KafkaConsumerServer  implements MessageListener<Integer, String> {
     protected final Logger LOG = LoggerFactory.getLogger("kafkaConsumer");
     /**
      * 监听器自动执行该方法
@@ -20,10 +20,10 @@ public class KafkaConsumerServer  implements MessageListener<String, String> {
      *     （high level api 不提供offset管理，不能指定offset进行消费）
      */
     @Override
-    public void onMessage(ConsumerRecord<String, String> record) {
+    public void onMessage(ConsumerRecord<Integer, String> record) {
         LOG.info("=============kafkaConsumer开始消费=============");
         String topic = record.topic();
-        String key = record.key();
+        Integer key = record.key();
         String value = record.value();
         long offset = record.offset();
         int partition = record.partition();
