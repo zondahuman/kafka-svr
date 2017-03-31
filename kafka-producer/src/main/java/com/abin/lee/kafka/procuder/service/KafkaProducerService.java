@@ -16,7 +16,7 @@ public class KafkaProducerService {
     protected final Logger LOG = LoggerFactory.getLogger("KafkaProducerService");
 
     @Autowired
-    private KafkaTemplate<Integer, String> kafkaTemplate;
+    private KafkaTemplate<String, String> kafkaTemplate;
 
     /**
      * 向kafka里写数据.<br/>

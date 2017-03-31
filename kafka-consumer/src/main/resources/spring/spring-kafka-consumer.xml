@@ -39,11 +39,11 @@
 
     <!-- 消费者容器配置信息 -->
     <bean id="containerProperties_trade" class="org.springframework.kafka.listener.config.ContainerProperties">
-        <constructor-arg value="order_test_topic"/>
+        <constructor-arg value="anti_fraud"/>
         <property name="messageListener" ref="messageListernerConsumerService"/>
     </bean>
     <bean id="containerProperties_other" class="org.springframework.kafka.listener.config.ContainerProperties">
-        <constructor-arg value="other_test_topic"/>
+        <constructor-arg value="anti_fraud_call"/>
         <property name="messageListener" ref="messageListernerConsumerService"/>
     </bean>
 

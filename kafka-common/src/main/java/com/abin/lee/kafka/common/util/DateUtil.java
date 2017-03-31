@@ -116,6 +116,17 @@ public class DateUtil {
     }
 
 
+    public static String getYMDHMSTime(long date) {
+        String result = "";
+        try {
+            result = DateFormatUtils.format(date, ymdhmsSdf);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return result;
+    }
+
+
 
     public static void main(String[] args) {
         String result = getYMDHMSTime();
@@ -128,6 +139,9 @@ public class DateUtil {
         System.out.println("result3="+result3);
         Date result4 = getHMSTime("12:00:13");
         System.out.println("result4="+result4);
+        String result5 = getYMDHMSTime(1487838953000L);
+        System.out.println("result5="+result5);
+
     }
 
 }

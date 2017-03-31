@@ -40,7 +40,7 @@
     <bean id="KafkaTemplate" class="org.springframework.kafka.core.KafkaTemplate">
         <constructor-arg ref="producerFactory"/>
         <constructor-arg name="autoFlush" value="true"/>
-        <property name="defaultTopic" value="mhb-test"/>
+        <property name="defaultTopic" value="anti_fraud"/>
     </bean>
 
 
