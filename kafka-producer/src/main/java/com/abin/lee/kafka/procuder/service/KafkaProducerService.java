@@ -27,8 +27,13 @@ public class KafkaProducerService {
      */
     public void send(String message){
         LOGGER.info("message={}", message +"---------------------start-------");
-        kafkaTemplate.sendDefault(ThreadLocalRandom.current().nextInt(), message);
+        kafkaTemplate.sendDefault(ThreadLocalRandom.current().nextInt(1000), message);
         LOGGER.info("message={}", message +"---------------------end-------");
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println(ThreadLocalRandom.current().nextInt(1000));
     }
 
 }
