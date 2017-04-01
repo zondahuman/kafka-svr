@@ -26,8 +26,8 @@ import java.util.UUID;
  * com.abin.lee.kafka.procuder.controller.test
  */
 public class KafkaSendTest {
-//    private static final String httpURL = "http://localhost:7100/send";
-    private static final String httpURL = "http://localhost:8100/send";
+    private static final String httpURL = "http://localhost:7100/send";
+//    private static final String httpURL = "http://localhost:8100/send";
 
     @Test
     public void testBlackListVerify() {
