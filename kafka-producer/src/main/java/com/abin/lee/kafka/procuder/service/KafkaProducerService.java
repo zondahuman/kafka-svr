@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 /**
  * Created by abin on 2017/3/28 19:06.
  * kafka-svr
@@ -24,9 +26,9 @@ public class KafkaProducerService {
      * Date:2016年6月24日下午6:22:58
      */
     public void send(String message){
-        LOGGER.info("message={}", message , "---------------------start-------");
-        kafkaTemplate.sendDefault(message);
-        LOGGER.info("message={}", message , "---------------------end-------");
+        LOGGER.info("message={}", message +"---------------------start-------");
+        kafkaTemplate.sendDefault(ThreadLocalRandom.current().nextInt(), message);
+        LOGGER.info("message={}", message +"---------------------end-------");
     }
 
 }
