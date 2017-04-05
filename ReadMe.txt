@@ -1,6 +1,7 @@
 Kafka Version:
 kafka_2.11-0.10.2.0
-
+Zookeeper Version:
+3.4.9
 
 Update Follow Up:
 broker.id=0
