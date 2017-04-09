@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 /**
  * Created by abin on 2017/4/8 2017/4/8.
@@ -19,7 +20,8 @@ public class ListTransferTest {
 
     public static void main(String[] args) {
         List<User> userList = Lists.newArrayList();
-        for(int i=0;i<5;i++){
+        for(int i=5;i>=0;i--){
+//        for(int i=0;i<5;i++){
             User user = new User();
             user.setAddress("beijing"+i);
             user.setAge(i+20);
@@ -44,14 +46,36 @@ public class ListTransferTest {
         userList.forEach(item -> System.out.println(item.getAddress()+"," + item.getAge()+"," + item.getId()+"," + item.getName()));
         System.out.println("-------------------------------------------------------------");
         List<UserVo> userVoList1 = Lists.newArrayList();
-        userList.forEach(item -> transfer(item,userVoList1));
-        System.out.println("userVoList1="+ JsonUtil.toJson(userVoList1));
+//        userList.forEach(item -> transfer1(item,userVoList1));
+//        System.out.println("userList1="+ JsonUtil.toJson(userVoList1));
         System.out.println("-------------------------------------------------------------");
-
+        sort1(userList);
+        System.out.println("-------------------------------------------------------------");
+        filter1(userList);
     }
 
-    public static void transfer(User user, List<UserVo> response){
-        response.forEach(item -> {item.setUserName(user.getName());item.setUserAge(user.getAge());item.setUserAddress(user.getAddress());item.setIds(user.getId());});
+    public static void transfer1(List<User> user, List<UserVo> request){
+//        request.stream().forEach(item -> {item.setUserName(user.getName());item.setUserAge(user.getAge());item.setUserAddress(user.getAddress());item.setIds(user.getId());});
+        /**
+         * myList.stream()
+         .map(obj -> new OtherObj(obj.getName(), obj.getMaxAge()))
+         .collect(Collectors.toList());
+         */
+//        user.stream().map(item -> new UserVo(item.getId(),item.getName(),item.getAddress(),item.getAge())).collect(Collectors.toList());
+    }
+
+    public static void sort1(List<User> request){
+        System.out.println("-------------------sort1---start------------------------------------------");
+        List<User> response = request.stream().filter(item -> item.getAge()>22).collect(Collectors.toList());
+        System.out.println("sort1--userList3="+ JsonUtil.toJson(response));
+        System.out.println("-------------------sort1---end------------------------------------------");
+    }
+
+    public static void filter1(List<User> request){
+        System.out.println("-------------------filter1---start------------------------------------------");
+        List<User> response = request.stream().filter(item -> item.getAge() != 24).collect(Collectors.toList());
+        System.out.println("filter1--userList4="+ JsonUtil.toJson(response));
+        System.out.println("-------------------filter1---end------------------------------------------");
     }
 
     @Getter
